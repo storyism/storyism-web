@@ -1,26 +1,234 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  html,
+  body {
+    height: 100%;
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.6;
+    color: #e5e7eb;
+    background-color: #1a0b2e;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #fbbf24;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary {
+    background-color: #fbbf24;
+    color: #1a0b2e;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background-color: #fcd34d;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: #fbbf24;
+    padding: 0.75rem 2rem;
+    border: 2px solid #fbbf24;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    background-color: #fbbf24;
+    color: #1a0b2e;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .card-dark {
+    background-color: rgba(45, 27, 78, 0.8);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .card-dark:hover {
+    border-color: #fbbf24;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .badge {
+    background-color: transparent;
+    color: #fbbf24;
+    border: 1px solid #fbbf24;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+  }
+
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 50%, #1e3a8a 100%);
+  }
+
+  .gradient-purple-blue {
+    background: linear-gradient(135deg, #2d1b4e 0%, #1e3a8a 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .font-heading {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+  }
+
+  .font-body {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .article-content {
+    font-family: "Inter", system-ui, sans-serif;
+    color: #e5e7eb;
+    line-height: 1.7;
+  }
+
+  .article-content h2 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    color: #fbbf24;
+  }
+
+  .article-content h3 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    color: #ffffff;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+    font-size: 1.125rem;
+    color: #e5e7eb;
+  }
+
+  .article-content a {
+    color: #fbbf24;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .article-content a:hover {
+    color: #fcd34d;
+    text-decoration-color: #fcd34d;
+  }
+
+  .prose-dark {
+    color: #e5e7eb;
+  }
+
+  .prose-dark h1 {
+    color: #fbbf24;
+  }
+
+  /* Full-width section utilities */
+  .section-full-width {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+
+  .container-responsive {
+    width: 100%;
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-responsive {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
 }
