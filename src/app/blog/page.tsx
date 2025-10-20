@@ -29,10 +29,7 @@ export default function Blog() {
                         {categories.map((category) => (
                             <button
                                 key={category}
-                                className={`px-6 py-3 rounded-full font-medium transition-all ${category === "All"
-                                    ? "btn-primary"
-                                    : "btn-secondary text-sm"
-                                    }`}
+                                className={category === "All" ? "btn-primary px-6 py-3 rounded-full font-medium transition-all" : "btn-secondary px-6 py-3 rounded-full font-medium transition-all text-sm"}
                             >
                                 {category}
                             </button>
@@ -49,10 +46,10 @@ export default function Blog() {
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 items-center">
                             <div>
-                                <div className="flex items-center gap-4 mb-4">
-                                    <span className="text-sm text-gray">{articles[0].date}</span>
-                                    <span className="text-sm text-gray">•</span>
-                                    <span className="text-sm text-gray">{articles[0].readTime}</span>
+                                <div className="flex items-center gap-4 mb-4 text-sm text-gray">
+                                    <span>{articles[0].date}</span>
+                                    <span>•</span>
+                                    <span>{articles[0].readTime}</span>
                                 </div>
                                 <h3 className="font-heading text-2xl font-bold mb-4 text-white">{articles[0].title}</h3>
                                 <p className="font-body text-lg text-light-gray mb-6 leading-relaxed">{articles[0].excerpt}</p>
@@ -89,10 +86,10 @@ export default function Blog() {
                                 key={article.id}
                                 className="card-dark group"
                             >
-                                <div className="flex items-center gap-2 mb-4">
-                                    <span className="text-xs text-gray">{article.date}</span>
-                                    <span className="text-xs text-gray">•</span>
-                                    <span className="text-xs text-gray">{article.readTime}</span>
+                                <div className="flex items-center gap-2 mb-4 text-xs text-gray">
+                                    <span>{article.date}</span>
+                                    <span>•</span>
+                                    <span>{article.readTime}</span>
                                 </div>
 
                                 <h3 className="font-heading text-xl font-semibold mb-4 text-white line-clamp-2 group-hover:text-gold transition-colors">
@@ -125,83 +122,27 @@ export default function Blog() {
                 <div className="mb-16">
                     <h2 className="font-heading text-3xl font-bold mb-8 text-gold">Explore Topics</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div className="card-dark group">
-                            <h3 className="font-heading text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                                <span className="text-2xl">📚</span>
-                                IP 101 & Licensing Basics
-                            </h3>
-                            <p className="font-body text-light-gray mb-4 leading-relaxed">
-                                Learn the fundamentals of intellectual property and how licensing works in the digital age.
-                            </p>
-                            <button className="text-gold hover:text-gold-bright font-medium transition-colors">
-                                Explore Articles →
-                            </button>
-                        </div>
-
-                        <div className="card-dark group">
-                            <h3 className="font-heading text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                                <span className="text-2xl">💰</span>
-                                Royalty On-Chain
-                            </h3>
-                            <p className="font-body text-light-gray mb-4 leading-relaxed">
-                                Discover how blockchain technology revolutionizes royalty distribution and creator compensation.
-                            </p>
-                            <button className="text-gold hover:text-gold-bright font-medium transition-colors">
-                                Explore Articles →
-                            </button>
-                        </div>
-
-                        <div className="card-dark group">
-                            <h3 className="font-heading text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                                <span className="text-2xl">🎭</span>
-                                Remix Culture
-                            </h3>
-                            <p className="font-body text-light-gray mb-4 leading-relaxed">
-                                Understanding how remix culture drives innovation and the tools that make it sustainable.
-                            </p>
-                            <button className="text-gold hover:text-gold-bright font-medium transition-colors">
-                                Explore Articles →
-                            </button>
-                        </div>
-
-                        <div className="card-dark group">
-                            <h3 className="font-heading text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                                <span className="text-2xl">⚙️</span>
-                                How Story Protocol Works
-                            </h3>
-                            <p className="font-body text-light-gray mb-4 leading-relaxed">
-                                Deep dive into the technical architecture that powers programmable IP.
-                            </p>
-                            <button className="text-gold hover:text-gold-bright font-medium transition-colors">
-                                Explore Articles →
-                            </button>
-                        </div>
-
-                        <div className="card-dark group">
-                            <h3 className="font-heading text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                                <span className="text-2xl">🌐</span>
-                                How to Use ip.world
-                            </h3>
-                            <p className="font-body text-light-gray mb-4 leading-relaxed">
-                                Practical guides for navigating and using the ip.world platform effectively.
-                            </p>
-                            <button className="text-gold hover:text-gold-bright font-medium transition-colors">
-                                Explore Articles →
-                            </button>
-                        </div>
-
-                        <div className="card-dark group">
-                            <h3 className="font-heading text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                                <span className="text-2xl">🤖</span>
-                                Community & Agents
-                            </h3>
-                            <p className="font-body text-light-gray mb-4 leading-relaxed">
-                                Meet the AI agents and community members building the future of IP.
-                            </p>
-                            <button className="text-gold hover:text-gold-bright font-medium transition-colors">
-                                Explore Articles →
-                            </button>
-                        </div>
+                        {[
+                            { icon: "📚", title: "IP 101 & Licensing Basics", desc: "Learn the fundamentals of intellectual property and how licensing works in the digital age." },
+                            { icon: "💰", title: "Royalty On-Chain", desc: "Discover how blockchain technology revolutionizes royalty distribution and creator compensation." },
+                            { icon: "🎭", title: "Remix Culture", desc: "Understanding how remix culture drives innovation and the tools that make it sustainable." },
+                            { icon: "⚙️", title: "How Story Protocol Works", desc: "Deep dive into the technical architecture that powers programmable IP." },
+                            { icon: "🌐", title: "How to Use ip.world", desc: "Practical guides for navigating and using the ip.world platform effectively." },
+                            { icon: "🤖", title: "Community & Agents", desc: "Meet the AI agents and community members building the future of IP." },
+                        ].map((topic) => (
+                            <div className="card-dark group" key={topic.title}>
+                                <h3 className="font-heading text-lg font-semibold mb-3 text-white flex items-center gap-2">
+                                    <span className="text-2xl">{topic.icon}</span>
+                                    {topic.title}
+                                </h3>
+                                <p className="font-body text-light-gray mb-4 leading-relaxed">
+                                    {topic.desc}
+                                </p>
+                                <button className="text-gold hover:text-gold-bright font-medium transition-colors">
+                                    Explore Articles →
+                                </button>
+                            </div>
+                        ))}
                     </div>
                 </div>
 

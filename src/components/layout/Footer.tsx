@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function GlobalFooter() {
+export default function Footer() {
     return (
         <footer className="gradient-purple-blue border-t border-gold/20 relative overflow-hidden">
             {/* Background Pattern */}

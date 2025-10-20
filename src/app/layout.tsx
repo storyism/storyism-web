@@ -1,7 +1,26 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
-import GlobalFooter from "@/components/GlobalFooter";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
+import { Space_Grotesk, Merriweather, JetBrains_Mono } from 'next/font/google'
+
+export const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',     // <— pasang ke CSS var
+})
+export const merriweather = Merriweather({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  display: 'swap',
+  variable: '--font-serif',
+})
+export const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+})
+
 
 export const metadata: Metadata = {
   title: "Storyism - IP sovereignty on-chain",
@@ -14,7 +33,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`scroll-smooth antialiased ${spaceGrotesk.variable} ${merriweather.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -28,7 +50,7 @@ export default function RootLayout({
         <main>
           {children}
         </main>
-        <GlobalFooter />
+        <Footer />
       </body>
     </html>
   );

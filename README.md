@@ -49,7 +49,7 @@ src/
 │   └── blog/           # Blog system
 ├── components/          # React components
 │   ├── Header.tsx      # Navigation
-│   ├── GlobalFooter.tsx # Footer
+│   ├── Footer.tsx # Footer
 │   └── sections/       # Homepage sections
 └── lib/                # Utilities and data
     └── articles.ts     # Blog data

@@ -1,33 +1,27 @@
-import Hero from '@/components/sections/Hero';
-import ManifestoPreview from '@/components/sections/ManifestoPreview';
-import WhyStoryism from '@/components/sections/WhyStoryism';
-import HowToContribute from '@/components/sections/HowToContribute';
-import CommunityAgents from '@/components/sections/CommunityAgents';
-import KnowledgeHub from '@/components/sections/KnowledgeHub';
-import Ecosystem from '@/components/sections/Ecosystem';
+import Hero from '@/app/_sections/Hero';
+import ManifestoPreview from '@/app/_sections/ManifestoPreview';
+import WhyItMatters from '@/app/_sections/WhyItMatters';
+import HowToContribute from '@/app/_sections/HowToContribute';
+import CommunityAgents from '@/app/_sections/CommunityAgents';
+import KnowledgeHub from '@/app/_sections/KnowledgeHub';
+import Ecosystem from '@/app/_sections/Ecosystem';
+import PageLayout from '@/components/layout/Page';
+import WhatIsStoryism from './_sections/WhatIsStoryism';
 
 export default function Home() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 space-y-16">
+    <PageLayout>
       <Hero />
-      <hr className="border-gray-300" />
+      <WhatIsStoryism />
+      <WhyItMatters />
+      <HowToContribute />
+      <CommunityAgents />
+
+
 
       <ManifestoPreview />
-      <hr className="border-gray-300" />
-
-      <WhyStoryism />
-      <hr className="border-gray-300" />
-
-      <HowToContribute />
-      <hr className="border-gray-300" />
-
-      <CommunityAgents />
-      <hr className="border-gray-300" />
-
       <KnowledgeHub />
-      <hr className="border-gray-300" />
-
       <Ecosystem />
-    </div>
+    </PageLayout>
   );
 }
