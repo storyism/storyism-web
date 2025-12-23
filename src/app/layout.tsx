@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+// eslint-disable-next-line import/no-unresolved
+// @ts-ignore - allow side-effect import of global CSS until a proper .d.ts is added
 import "./globals.css";
 import { Space_Grotesk, Merriweather, JetBrains_Mono } from 'next/font/google'
 
@@ -46,11 +46,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
