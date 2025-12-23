@@ -38,6 +38,14 @@ export default function Footer() {
                             >
                                 🪙 Shoppy Token
                             </a>
+                            <a
+                                href="https://x.com/i/communities/1968548512540561561"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-secondary text-sm"
+                            >
+                                🐦 X Community
+                            </a>
                         </div>
                     </div>
 
@@ -117,6 +125,14 @@ export default function Footer() {
                                 className="font-body text-sm text-gray hover:text-gold transition-colors"
                             >
                                 Shoppy Token
+                            </a>
+                            <a
+                                href="https://x.com/i/communities/1968548512540561561"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-body text-sm text-gray hover:text-gold transition-colors"
+                            >
+                                X Community
                             </a>
                         </div>
                     </div>

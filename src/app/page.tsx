@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState, useMemo } from 'react'
+import { Mail, Globe } from 'lucide-react'
 
 export default function Home() {
   const [glitchActive, setGlitchActive] = useState(false)
@@ -451,13 +452,13 @@ export default function Home() {
           className="mt-16 flex gap-8"
         >
           {[
-            { name: 'Twitter', symbol: 'X', border: '#fbbf24', color: '#fbbf24' },
-            { name: 'Discord', symbol: 'D', border: '#a855f7', color: '#a855f7' },
-            { name: 'GitHub', symbol: 'G', border: '#fb923c', color: '#fb923c' },
+            { name: 'Twitter', symbol: 'X', border: '#fbbf24', color: '#fbbf24', href: 'https://x.com/i/communities/1968548512540561561' },
           ].map((social, index) => (
             <motion.a
               key={social.name}
-              href="#"
+              href={social.href ?? '#'}
+              target={social.href && social.href !== '#' ? '_blank' : undefined}
+              rel={social.href && social.href !== '#' ? 'noopener noreferrer' : undefined}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.6 + index * 0.1 }}
@@ -487,6 +488,46 @@ export default function Home() {
               />
             </motion.a>
           ))}
+
+          {/* IP asset link (ip.world) */}
+          <motion.a
+            href="https://ip.world/ip/storyism"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.9, duration: 0.5 }}
+            className={`group relative flex h-14 w-14 items-center justify-center border-2 font-mono text-xl font-bold`}
+            style={{
+              clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
+              borderColor: '#7c3aed',
+              color: '#7c3aed',
+              background: 'transparent',
+            }}
+            whileHover={{ scale: 1.2, rotate: 180 }}
+          >
+            <span className="relative z-10"><Globe className="h-5 w-5" /></span>
+            <motion.div className={`absolute inset-0 opacity-0 group-hover:opacity-10`} style={{ background: '#7c3aed' }} />
+          </motion.a>
+
+          {/* Contact (mailto) — lucide icon only */}
+          <motion.a
+            href="mailto:storyism.ip@gmail.com"
+            aria-label="Contact via email"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.0, duration: 0.5 }}
+            className={`group relative flex h-14 w-14 items-center justify-center border-2 rounded-full font-mono text-sm font-bold`}
+            style={{
+              borderColor: '#ec4899',
+              color: '#ec4899',
+              background: 'transparent',
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            <span className="relative z-10"><Mail className="h-5 w-5" /></span>
+            <motion.div className={`absolute inset-0 opacity-0 group-hover:opacity-10`} style={{ background: '#ec4899' }} />
+          </motion.a>
         </motion.div>
 
         {/* Status message */}

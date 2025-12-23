@@ -11,6 +11,11 @@ export default function Footer() {
                         </a>
                     </li>
                     <li>
+                        • <a href="https://x.com/i/communities/1968548512540561561" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                            X / Twitter Community
+                        </a>
+                    </li>
+                    <li>
                         • <a href="https://ip.world/token/0xb001fB4fdd1ca1F0D9C89ab01DC4d32B070817BD" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                             Shoppy Token
                         </a>
